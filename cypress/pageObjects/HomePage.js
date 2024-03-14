@@ -34,11 +34,15 @@ static get searchField(){
 }
 
 static get productCard() {
-  return cy.get("[alt='Lemon Juice (500ml)']");
+  return cy.get("[class='item-name']");
 }
 
 static get content(){
-  return cy.get("#mat-dialog-0");
+  return cy.get("[class='mat-dialog-content']");
+}
+
+static get closeCard(){
+return cy.get("button[aria-label='Close Dialog']");
 }
 
 }

@@ -135,7 +135,7 @@ describe("Juice-shop scenarios", () => {
     });
     
     // Create scenario - Add a review
-    it.only("Add a review", () => {
+    it("Add a review", () => {
       // Click on search icon
       HomePage.search.click();
       // Search for Raspberry
@@ -153,37 +153,24 @@ describe("Juice-shop scenarios", () => {
     })
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-
-
-    
-
     // Create scenario - Validate product card amount
-    // Validate that the default amount of cards is 12
-    // Change items per page (at the bottom of page) to 24
-    // Validate that the amount of cards is 24
-    // Change items per page (at the bottom of page) to 36
-    // Validate that the amount of cards is 35
+    it.only("Validate product card amount", () => {
+      // Validate that the default amount of cards is 12
+      HomePage.howManyCards.should("have.text", " 1 – 12 of 35 ");
+      // Change items per page (at the bottom of page) to 24
+      HomePage.chooseAmountOfCards.click();
+      HomePage.changeAmountofCards24.click();
+      // Validate that the amount of cards is 24
+      HomePage.howManyCards.should("have.text", " 1 – 24 of 35 ");
+      // Change items per page (at the bottom of page) to 36
+      HomePage.chooseAmountOfCards.click();
+      HomePage.changeAmountofCards36.click();
+      // Validate that the amount of cards is 35
+      HomePage.howManyCards.should("have.text", " 1 – 35 of 35 ");
+    })
 
+    
+    
     // Create scenario - Buy Girlie T-shirt
     // Click on search icon
     // Search for Girlie

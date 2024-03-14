@@ -25,6 +25,7 @@ export class HomePage extends BasePage {
     return cy.get("button[aria-label='Go to user profile']")
   }
 
+  // search
   static get search() {
     return cy.get("#searchQuery")
   }
@@ -33,6 +34,7 @@ export class HomePage extends BasePage {
     return cy.get("#mat-input-0")
   }
 
+  // productCard
   static get productCard() {
     return cy.get("[class='item-name']");
   }
@@ -45,6 +47,7 @@ export class HomePage extends BasePage {
     return cy.get("button[aria-label='Close Dialog']");
   }
 
+  // comment
   static get rewiew() {
     return cy.get("[aria-label='Expand for Reviews']");
   }
@@ -58,8 +61,23 @@ export class HomePage extends BasePage {
   }
 
   static get submitButton() {
-    return cy.get("#submitButton")
+    return cy.get("#submitButton");
   }
 
+  //card count
+  static get howManyCards() {
+    return cy.get('[class="mat-paginator-range-label"]');
+  }
 
+  static get chooseAmountOfCards() {
+    return cy.get("#mat-select-0" || "#mat-select-1" || "#mat-select-2");
+  }
+
+  static get changeAmountofCards24() {
+    return cy.get("#mat-option-1")
+  }
+
+  static get changeAmountofCards36() {
+    return cy.get("#mat-option-2")
+  }
 }

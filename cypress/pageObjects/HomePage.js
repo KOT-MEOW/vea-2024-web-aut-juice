@@ -80,4 +80,14 @@ export class HomePage extends BasePage {
   static get changeAmountofCards36() {
     return cy.get("#mat-option-2")
   }
+
+  //basket
+  static get addShirtToBasket() {
+    return cy.get('[aria-label="Add to Basket"]');
+  }
+
+  static get yourBasket() {
+    return cy.get('[aria-label="Show the shopping cart"]');
+  }
+
 }

@@ -1,6 +1,9 @@
+import { BasketPage } from "../pageObjects/BasketPage";
 import { HomePage } from "../pageObjects/HomePage";
 import { LoginPage } from "../pageObjects/LoginPage";
 import { RegistrationPage } from "../pageObjects/RegistrarionPage";
+import { SelectAddressPage } from "../pageObjects/SelectAddressPage";
+import { BasePage } from "../pageObjects/basePage";
 
 describe("Juice-shop scenarios", () => {
   context("Without auto login", () => {
@@ -154,7 +157,7 @@ describe("Juice-shop scenarios", () => {
     
     
     // Create scenario - Validate product card amount
-    it.only("Validate product card amount", () => {
+    it("Validate product card amount", () => {
       // Validate that the default amount of cards is 12
       HomePage.howManyCards.should("have.text", " 1 – 12 of 35 ");
       // Change items per page (at the bottom of page) to 24
@@ -170,18 +173,30 @@ describe("Juice-shop scenarios", () => {
     })
 
     
-    
     // Create scenario - Buy Girlie T-shirt
-    // Click on search icon
-    // Search for Girlie
-    // Add to basket "Girlie"
-    // Click on "Your Basket" button
-    // Create page object - BasketPage
-    // Click on "Checkout" button
-    // Create page object - SelectAddressPage
-    // Select address containing "United Fakedom"
-    // Click Continue button
-    // Create page object - DeliveryMethodPage
+    it.only("Buy Girlie T-shirt", () => {
+      // Click on search icon
+      HomePage.search.click();
+      // Search for Girlie
+      HomePage.searchField.type("Girlie{enter}");
+      // Add to basket "Girlie"
+      HomePage.addShirtToBasket.click();
+      // Click on "Your Basket" button
+      HomePage.yourBasket.click();
+      // Create page object - BasketPage
+      // Click on "Checkout" button
+      BasketPage.checkOutButton.click();
+      // Create page object - SelectAddressPage
+      // Select address containing "United Fakedom"
+      SelectAddressPage.selectAddress.should("have.text", "United Fakedom").click();
+      // Click Continue button
+      BasketPage.continueButton.click();
+      // Create page object - DeliveryMethodPage
+      
+
+
+    })
+    
     // Select delivery speed Standard Delivery
     // Click Continue button
     // Create page object - PaymentOptionsPage
@@ -190,7 +205,18 @@ describe("Juice-shop scenarios", () => {
     // Create page object - OrderSummaryPage
     // Click on "Place your order and pay"
     // Create page object - OrderCompletionPage
-    // Validate confirmation - "Thank you for your purchase!"
+    // Validate confirmation - "Thank you for your purchase!" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 
     // Create scenario - Add address
     // Click on Account

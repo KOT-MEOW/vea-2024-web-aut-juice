@@ -25,4 +25,20 @@ static get progileMenuoption(){
   return cy.get("button[aria-label='Go to user profile']")
 }
 
+static get search(){
+  return cy.get("#searchQuery")
+}
+
+static get searchField(){
+  return cy.get("#mat-input-0")
+}
+
+static get productCard() {
+  return cy.get("[aria-label='Click for more information about the product']");
+}
+
+static get content(){
+  return cy.get("#mat-dialog-0");
+}
+
 }

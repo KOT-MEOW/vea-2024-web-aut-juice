@@ -37,5 +37,9 @@ export class RegistrationPage extends BasePage {
         return cy.get("#registerButton")
     }
 
+    static get search(){
+        return cy.get("#mat-input-0")
+    }
+
 }
  

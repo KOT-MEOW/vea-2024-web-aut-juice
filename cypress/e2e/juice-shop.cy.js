@@ -1,6 +1,10 @@
 import { BasketPage } from "../pageObjects/BasketPage";
+import { DeliveryMethodPage } from "../pageObjects/DeliveryMethodPage";
 import { HomePage } from "../pageObjects/HomePage";
 import { LoginPage } from "../pageObjects/LoginPage";
+import { OrderCompletionPage } from "../pageObjects/OrderCompletionPage";
+import { OrderSummaryPage } from "../pageObjects/OrderSummaryPage";
+import { PaymentOptionsPage } from "../pageObjects/PaymentOptionsPage";
 import { RegistrationPage } from "../pageObjects/RegistrarionPage";
 import { SelectAddressPage } from "../pageObjects/SelectAddressPage";
 import { BasePage } from "../pageObjects/basePage";
@@ -192,20 +196,32 @@ describe("Juice-shop scenarios", () => {
       // Click Continue button
       BasketPage.continueButton.click();
       // Create page object - DeliveryMethodPage
-      
-
-
+      // Select delivery speed Standard Delivery
+      DeliveryMethodPage.chooseDelivery.contains(" Standard Delivery").click();
+      // Click Continue button
+      DeliveryMethodPage.continueButton.click();
+      // Create page object - PaymentOptionsPage
+      // Select card that ends with "5678"
+      PaymentOptionsPage.selectAcard.click();
+      // Click Continue button
+      PaymentOptionsPage.continueButton.click();
+      // Create page object - OrderSummaryPage
+      // Click on "Place your order and pay"
+      OrderSummaryPage.checkoutButton.click();
+      // Create page object - OrderCompletionPage
+      // Validate confirmation - "Thank you for your purchase!" 
+      OrderCompletionPage.confimation.contains("Thank you for your purchase!");
     })
     
-    // Select delivery speed Standard Delivery
-    // Click Continue button
-    // Create page object - PaymentOptionsPage
-    // Select card that ends with "5678"
-    // Click Continue button
-    // Create page object - OrderSummaryPage
-    // Click on "Place your order and pay"
-    // Create page object - OrderCompletionPage
-    // Validate confirmation - "Thank you for your purchase!" 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

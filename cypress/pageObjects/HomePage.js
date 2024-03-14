@@ -13,36 +13,53 @@ export class HomePage extends BasePage {
     return cy.get("[aria-label='dismiss cookie message']");
   }
 
-static get accountButton(){
-  return cy.get("button#navbarAccount");
-}
+  static get accountButton() {
+    return cy.get("button#navbarAccount");
+  }
 
-static get loginButton(){
-  return cy.get("button#navbarLoginButton");
-}
+  static get loginButton() {
+    return cy.get("button#navbarLoginButton");
+  }
 
-static get progileMenuoption(){
-  return cy.get("button[aria-label='Go to user profile']")
-}
+  static get progileMenuoption() {
+    return cy.get("button[aria-label='Go to user profile']")
+  }
 
-static get search(){
-  return cy.get("#searchQuery")
-}
+  static get search() {
+    return cy.get("#searchQuery")
+  }
 
-static get searchField(){
-  return cy.get("#mat-input-0")
-}
+  static get searchField() {
+    return cy.get("#mat-input-0")
+  }
 
-static get productCard() {
-  return cy.get("[class='item-name']");
-}
+  static get productCard() {
+    return cy.get("[class='item-name']");
+  }
 
-static get content(){
-  return cy.get("[class='mat-dialog-content']");
-}
+  static get content() {
+    return cy.get("[class='mat-dialog-content']");
+  }
 
-static get closeCard(){
-return cy.get("button[aria-label='Close Dialog']");
-}
+  static get closeCard() {
+    return cy.get("button[aria-label='Close Dialog']");
+  }
+
+  static get rewiew() {
+    return cy.get("[aria-label='Expand for Reviews']");
+  }
+
+  static get rewiewCom() {
+    return cy.get('div.comment');
+  }
+
+  static get writeRewiew() { 
+    return cy.get('[aria-label="Text field to review a product"]');
+  }
+
+  static get submitButton() {
+    return cy.get("#submitButton")
+  }
+
 
 }

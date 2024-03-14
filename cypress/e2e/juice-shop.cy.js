@@ -85,20 +85,20 @@ describe("Juice-shop scenarios", () => {
     });
     
     // Create scenario - Search 500ml and validate Lemon, while having multiple cards
-      it("Search 500ml", () =>{
-        // Click on search icon
-        HomePage.search.click();
-        // Search for 500ml
-        HomePage.searchField.type("500ml{enter}");
-        // Select a product card - Lemon Juice (500ml)
-        HomePage.productCard.contains("Lemon Juice (500ml)").click();
-        // Validate that the card (should) contains "Sour but full of vitamins."
-        HomePage.content.should("contain" , "Sour but full of vitamins.");
-   });
+    it("Search 500ml", () =>{
+      // Click on search icon
+      HomePage.search.click();
+      // Search for 500ml
+      HomePage.searchField.type("500ml{enter}");
+      // Select a product card - Lemon Juice (500ml)
+      HomePage.productCard.contains("Lemon Juice (500ml)").click();
+      // Validate that the card (should) contains "Sour but full of vitamins."
+      HomePage.content.should("contain" , "Sour but full of vitamins.");
+    });
     
     // Create scenario - Search 500ml and validate cards
-    it.only("Search 500ml and validate cards", () =>{
-        // Click on search icon
+    it("Search 500ml and validate cards", () => {
+      // Click on search icon
         HomePage.search.click();
         // Search for 500ml
         HomePage.searchField.type("500ml{enter}");
@@ -120,36 +120,62 @@ describe("Juice-shop scenarios", () => {
         HomePage.content.should("contain" , "Sweet & tasty!");
     });
     
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     // Create scenario - Read a review
-    // Click on search icon
-    // Search for King
-    // Select a product card - OWASP Juice Shop "King of the Hill" Facemask
-    // Click expand reviews button/icon (wait for reviews to appear)
-    // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
-
+    it("Read a review", () => {
+      // Click on search icon
+      HomePage.search.click();
+      // Search for King
+      HomePage.searchField.type("King{enter}");
+      // Select a product card - OWASP Juice Shop "King of the Hill" Facemask
+      HomePage.productCard.contains('OWASP Juice Shop "King of the Hill" Facemask').click();
+      // Click expand reviews button/icon (wait for reviews to appear)
+      HomePage.rewiew.click();
+      // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
+      HomePage.rewiewCom.should("contain", "K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!");
+    });
+    
     // Create scenario - Add a review
-    // Click on search icon
-    // Search for Raspberry
-    // Select a product card - Raspberry Juice (1000ml)
-    // Type in review - "Tastes like metal"
-    // Click Submit
-    // Click expand reviews button/icon (wait for reviews to appear)
-    // Validate review -  "Tastes like metal"
+    it.only("Add a review", () => {
+      // Click on search icon
+      HomePage.search.click();
+      // Search for Raspberry
+      HomePage.searchField.type("Raspberry{enter}");
+      // Select a product card - Raspberry Juice (1000ml)
+      HomePage.productCard.contains('Raspberry Juice (1000ml)').click();
+      // Type in review - "Tastes like metal"
+      HomePage.writeRewiew.type("Tastes like metal");
+      // Click Submit
+      HomePage.submitButton.click();
+      // Click expand reviews button/icon (wait for reviews to appear)
+      HomePage.rewiew.click();
+      // Validate review -  "Tastes like metal"
+      HomePage.rewiewCom.should("contain", "Tastes like metal");
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+    
 
     // Create scenario - Validate product card amount
     // Validate that the default amount of cards is 12

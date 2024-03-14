@@ -13,4 +13,7 @@ export class PaymentOptionsPage extends BasePage {
     return cy.get('[aria-label="Proceed to review"]');
   }
 
+
+  
+
 }

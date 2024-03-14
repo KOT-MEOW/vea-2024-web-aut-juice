@@ -8,6 +8,7 @@ import { OrderSummaryPage } from "../pageObjects/OrderSummaryPage";
 import { PaymentOptionsPage } from "../pageObjects/PaymentOptionsPage";
 import { RegistrationPage } from "../pageObjects/RegistrarionPage";
 import { SavedAddressesPage } from "../pageObjects/SavedAddressesPage";
+import { SavedPaymentMethodsPage } from "../pageObjects/SavedPaymentMethodsPage";
 import { SelectAddressPage } from "../pageObjects/SelectAddressPage";
 import { BasePage } from "../pageObjects/basePage";
 
@@ -217,7 +218,7 @@ describe("Juice-shop scenarios", () => {
     
     
     // Create scenario - Add address
-    it.only("Add address", () => {
+    it("Add address", () => {
       // Click on Account
       HomePage.accountButton.click();
       // Click on Orders & Payment
@@ -243,32 +244,49 @@ describe("Juice-shop scenarios", () => {
     })
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // Create scenario - Add payment option
-    // Click on Account
-    // Click on Orders & Payment
-    // Click on My payment options
-    // Create page object - SavedPaymentMethodsPage
-    // Click Add new card
-    // Fill in Name
-    // Fill in Card Number
-    // Set expiry month to 7
-    // Set expiry year to 2090
-    // Click Submit button
-    // Validate that the card shows up in the list
+    it.only("Add payment option", () => {
+      // Click on Account
+      HomePage.accountButton.click();
+      // Click on Orders & Payment
+      HomePage.orderANDpaymentButton.click();
+      // Click on My payment options
+      HomePage.myPaymentOptions.click();
+      // Create page object - SavedPaymentMethodsPage
+      // Click Add new card
+      SavedPaymentMethodsPage.addNewCard.click();
+      cy.wait(1000)
+      // Fill in Name
+      SavedPaymentMethodsPage.nameField.type("Ilja");
+      // Fill in Card Number
+      SavedPaymentMethodsPage.addNewCard.type("1234567898765432");
+
+
+    })
+    
+    
+    
+    
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
     
     
     

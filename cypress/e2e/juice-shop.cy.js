@@ -1,4 +1,5 @@
 import { BasketPage } from "../pageObjects/BasketPage";
+import { CreateAddressPage } from "../pageObjects/CreateAddressPage";
 import { DeliveryMethodPage } from "../pageObjects/DeliveryMethodPage";
 import { HomePage } from "../pageObjects/HomePage";
 import { LoginPage } from "../pageObjects/LoginPage";
@@ -6,6 +7,7 @@ import { OrderCompletionPage } from "../pageObjects/OrderCompletionPage";
 import { OrderSummaryPage } from "../pageObjects/OrderSummaryPage";
 import { PaymentOptionsPage } from "../pageObjects/PaymentOptionsPage";
 import { RegistrationPage } from "../pageObjects/RegistrarionPage";
+import { SavedAddressesPage } from "../pageObjects/SavedAddressesPage";
 import { SelectAddressPage } from "../pageObjects/SelectAddressPage";
 import { BasePage } from "../pageObjects/basePage";
 
@@ -178,7 +180,7 @@ describe("Juice-shop scenarios", () => {
 
     
     // Create scenario - Buy Girlie T-shirt
-    it.only("Buy Girlie T-shirt", () => {
+    it("Buy Girlie T-shirt", () => {
       // Click on search icon
       HomePage.search.click();
       // Search for Girlie
@@ -192,7 +194,7 @@ describe("Juice-shop scenarios", () => {
       BasketPage.checkOutButton.click();
       // Create page object - SelectAddressPage
       // Select address containing "United Fakedom"
-      SelectAddressPage.selectAddress.should("have.text", "United Fakedom").click();
+      SelectAddressPage.selectAddress.contains("United Fakedom").click();
       // Click Continue button
       BasketPage.continueButton.click();
       // Create page object - DeliveryMethodPage
@@ -214,37 +216,47 @@ describe("Juice-shop scenarios", () => {
     })
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
     // Create scenario - Add address
-    // Click on Account
-    // Click on Orders & Payment
-    // Click on My saved addresses
-    // Create page object - SavedAddressesPage
-    // Click on Add New Address
-    // Create page object - CreateAddressPage
-    // Fill in the necessary information
-    // Click Submit button
-    // Validate that previously added address is visible
-
+    it.only("Add address", () => {
+      // Click on Account
+      HomePage.accountButton.click();
+      // Click on Orders & Payment
+      HomePage.orderANDpaymentButton.click();
+      // Click on My saved addresses
+      HomePage.mySavedAddresess.click();
+      // Create page object - SavedAddressesPage
+      // Click on Add New Address
+      SavedAddressesPage.addNewAdress.click();
+      // Create page object - CreateAddressPage
+      // Fill in the necessary information
+      CreateAddressPage.countryField.type("Latvija");
+      CreateAddressPage.nameField.type("Ilja Avlass");
+      CreateAddressPage.phoneField.type("28282828");
+      CreateAddressPage.zipCodeField.type("LV-3602");
+      CreateAddressPage.addressField.type("P.Stradina222222");
+      CreateAddressPage.cityField.type("Ventspils");
+      CreateAddressPage.stateField.type("Kurzeme");
+      // Click Submit button
+      CreateAddressPage.submitButton.click();
+      // Validate that previously added address is visible
+      SelectAddressPage.selectAddress.should("contain", "Latvija");
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // Create scenario - Add payment option
     // Click on Account
     // Click on Orders & Payment
@@ -257,5 +269,19 @@ describe("Juice-shop scenarios", () => {
     // Set expiry year to 2090
     // Click Submit button
     // Validate that the card shows up in the list
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+
+    
   });
 });

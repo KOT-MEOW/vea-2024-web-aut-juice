@@ -89,5 +89,14 @@ export class HomePage extends BasePage {
   static get yourBasket() {
     return cy.get('[aria-label="Show the shopping cart"]');
   }
+  
+  //add adress
+  static get orderANDpaymentButton() {
+    return cy.get('[aria-label="Show Orders and Payment Menu"][role="menuitem"]');
+  }
+
+  static get mySavedAddresess() {
+    return cy.get('[aria-label="Go to saved address page"]');
+  }
 
 }

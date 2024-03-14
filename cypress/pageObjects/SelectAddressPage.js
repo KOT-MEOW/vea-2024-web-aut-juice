@@ -6,7 +6,7 @@ export class SelectAddressPage extends BasePage {
   }
 
   static get selectAddress() {
-    return cy.get('[class="mat-cell cdk-cell cdk-column-Country mat-column-Country ng-star-inserted"]');
+    return cy.get('[class="mat-row cdk-row ng-star-inserted"]');
   }
 
 }

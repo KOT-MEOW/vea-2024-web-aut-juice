@@ -6,7 +6,7 @@ export class OrderCompletionPage extends BasePage {
   }
 
  static get confimation(){
-    return cy.get('[class="mat-card mat-focus-indicator mat-elevation-z0"   ]');
+    return cy.get('[class="mat-card mat-focus-indicator mat-elevation-z0"]');
  }
   
 

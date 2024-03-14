@@ -36,11 +36,19 @@ describe("Juice-shop scenarios", () => {
       RegistrationPage.notAcostumer.click();
       // Find - how to generate random number in JS
       // Use that number to genarate unique email address, e.g.: email_7584@ebox.com
+      const email = `email_${Math.round((Math.random() * 100) + 100)}@ebox.com`;
+      RegistrationPage.emailField.type(email);
       // Save that email address to some variable
+      let myEmail = email;
       // Fill in password field and repeat password field with same password
-      
+      const password = `qwerty${Math.round((Math.random() * 100) + 100)}`;
+      RegistrationPage.passwordField.type(password);
+      RegistrationPage.repeatPasswordField.type(password);
       // Click on Security Question menu
+      RegistrationPage.sequrityQuestionButton.click();
+      RegistrationPage.sequrityQuestion.click();
       // Select  "Name of your favorite pet?"
+
       // Fill in answer
       // Click Register button
       // Set email value to previously created email

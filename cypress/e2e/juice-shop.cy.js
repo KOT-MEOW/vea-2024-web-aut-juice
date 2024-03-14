@@ -36,26 +36,34 @@ describe("Juice-shop scenarios", () => {
       RegistrationPage.notAcostumer.click();
       // Find - how to generate random number in JS
       // Use that number to genarate unique email address, e.g.: email_7584@ebox.com
-      const email = `email_${Math.round((Math.random() * 100) + 100)}@ebox.com`;
-      RegistrationPage.emailField.type(email);
+      const genEmail = `email_${Math.round((Math.random() * 100) + 100)}@ebox.com`;
+      RegistrationPage.emailField.type(genEmail);
       // Save that email address to some variable
-      let myEmail = email;
+      let myEmail = genEmail;
       // Fill in password field and repeat password field with same password
-      const password = `qwerty${Math.round((Math.random() * 100) + 100)}`;
-      RegistrationPage.passwordField.type(password);
-      RegistrationPage.repeatPasswordField.type(password);
+      const genPassword = `qwerty${Math.round((Math.random() * 100) + 100)}`;
+      let myPassword = genPassword;
+
+      RegistrationPage.passwordField.type(genPassword);
+      RegistrationPage.repeatPasswordField.type(genPassword);
       // Click on Security Question menu
       RegistrationPage.sequrityQuestionButton.click();
-      RegistrationPage.sequrityQuestion.click();
       // Select  "Name of your favorite pet?"
-
+      RegistrationPage.sequrityQuestion.click();
       // Fill in answer
+      RegistrationPage.answerField.type("oksi");
       // Click Register button
+      RegistrationPage.registerButton.click();
       // Set email value to previously created email
+      LoginPage.emailField.type(myEmail);
       // Set password value to previously used password value
+      LoginPage.passwordField.type(myPassword);
       // Click login button
+      LoginPage.loginButton.click();
       // Click Account button
+      HomePage.accountButton.click();
       // Validate that account name (with previously created email address) appears in the menu section
+      HomePage.progileMenuoption.should("contain", myEmail);
     });
   });
 

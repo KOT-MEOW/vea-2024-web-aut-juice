@@ -6,7 +6,7 @@ export class RegistrationPage extends BasePage {
     }
 
     static get notAcostumer() {
-        return cy.get("#newCustomerLink")
+        return cy.get("#newCustomerLink");
     }
 
     static get emailField() {
@@ -14,19 +14,27 @@ export class RegistrationPage extends BasePage {
     }
 
     static get passwordField() {
-        return cy.get("#passwordControl")
+        return cy.get("#passwordControl");
     }
 
     static get repeatPasswordField() {
-        return cy.get("#repeatPasswordControl")
+        return cy.get("#repeatPasswordControl");
     }
 
     static get sequrityQuestionButton() {
-        return cy.get("[name='securityQuestion']")
+        return cy.get("[name='securityQuestion']");
     }
 
     static get sequrityQuestion() {
-        return cy.get("")
+        return cy.get("#mat-option-9");
+    }
+
+    static get answerField() {
+        return cy.get("#securityAnswerControl");
+    }
+
+    static get registerButton() {
+        return cy.get("#registerButton")
     }
 
 }

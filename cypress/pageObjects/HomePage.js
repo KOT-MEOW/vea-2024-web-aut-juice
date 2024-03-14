@@ -34,7 +34,7 @@ static get searchField(){
 }
 
 static get productCard() {
-  return cy.get("[aria-label='Click for more information about the product']");
+  return cy.get("[alt='Lemon Juice (500ml)']");
 }
 
 static get content(){

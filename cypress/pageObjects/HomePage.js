@@ -12,4 +12,17 @@ export class HomePage extends BasePage {
   static get meWantItButton() {
     return cy.get("[aria-label='dismiss cookie message']");
   }
+
+static get accountButton(){
+  return cy.get("button#navbarAccount");
+}
+
+static get loginButton(){
+  return cy.get("button#navbarLoginButton");
+}
+
+static get progileMenuoption(){
+  return cy.get("button[aria-label='Go to user profile']")
+}
+
 }
